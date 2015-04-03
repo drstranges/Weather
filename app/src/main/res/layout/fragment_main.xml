@@ -20,28 +20,47 @@
 
         <LinearLayout
             android:gravity="center_vertical"
-            android:layout_gravity="left"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:padding="16dp">
 
 
-            <!-- Header: Day, Date -->
+            <!-- Header: Place, Day, Date -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/tv_place"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="28sp"/>
+
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/ib_show_map"
+                    android:layout_marginLeft="8dp"
+                    android:src="@android:drawable/ic_menu_mylocation"
+                    android:tintMode="src_over"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/tv_day"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:textSize="24sp"
-                android:text="Sunday"/>
+                android:textSize="24sp"/>
 
 
             <TextView
                 android:id="@+id/tv_date"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:textSize="16sp"
-                android:text="03.04.2015"/>
+                android:textSize="16sp"/>
 
 
             <!-- Main content: high, low, art, weather state -->
@@ -65,8 +84,7 @@
                         android:id="@+id/tv_high"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:textSize="96sp"
-                        android:text="12"/>
+                        android:textSize="86sp"/>
 
 
                     <TextView
@@ -74,8 +92,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:textSize="48sp"
-                        android:text="-1"/>
+                        android:textSize="48sp"/>
                 </LinearLayout>
 
 
@@ -88,19 +105,19 @@
                     android:layout_weight="1">
 
 
-                    <ImageView
+                    <com.android.volley.toolbox.NetworkImageView
                         android:id="@+id/iv_icon"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"/>
 
 
                     <TextView
                         android:id="@+id/tv_description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:textAppearanceLarge"
-                        android:text="Sunny"/>
+                        android:textSize="28sp"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -118,8 +135,7 @@
                     android:id="@+id/tv_humidity"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:textAppearance="?android:textAppearanceLarge"
-                    android:text="235 mm.hg"/>
+                    android:textSize="24sp"/>
 
 
                 <TextView
@@ -127,8 +143,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:layout_width="match_parent"
-                    android:textAppearance="?android:textAppearanceLarge"
-                    android:text="1 At"/>
+                    android:textSize="24sp"/>
 
 
                 <TextView
@@ -136,8 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:layout_width="match_parent"
-                    android:textAppearance="?android:textAppearanceLarge"
-                    android:text="SW 21"/>
+                    android:textSize="24sp"/>
 
             </LinearLayout>
         </LinearLayout>

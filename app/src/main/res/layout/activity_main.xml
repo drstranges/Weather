@@ -17,5 +17,5 @@
               android:layout_height="match_parent"
               android:tag="@string/fragment_main_tag"
               tools:context="com.drprog.weather.MainFragment"
-        tools:layout="@layout/fragment_main"/>
+              tools:layout="@layout/fragment_main"/>
 </RelativeLayout>

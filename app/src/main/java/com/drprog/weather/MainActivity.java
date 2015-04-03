@@ -3,9 +3,11 @@ package com.drprog.weather;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -14,6 +16,8 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends ActionBarActivity implements SearchView.OnQueryTextListener {
+
+    private static final String PREF_KEY_LAST_LOCATION = "PREF_KEY_LAST_LOCATION";
 
     private SearchView mSearchView;
 
@@ -31,6 +35,9 @@ public class MainActivity extends ActionBarActivity implements SearchView.OnQuer
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             loadWeather(query);
+        }else{
+            loadWeather(getLastQuery());
+
         }
 
     }
@@ -70,10 +77,23 @@ public class MainActivity extends ActionBarActivity implements SearchView.OnQuer
     }
 
     private void loadWeather(String query) {
+        saveLastQuery(query);
         Fragment fragment = getSupportFragmentManager()
                 .findFragmentByTag(getString(R.string.fragment_main_tag));
         if (fragment != null) {
             ((MainFragment) fragment).loadWeather(query);
         }
+    }
+
+    private void saveLastQuery(String query) {
+        SharedPreferences sPref =
+                PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        sPref.edit().putString(PREF_KEY_LAST_LOCATION, query).apply();
+    }
+
+    private String getLastQuery() {
+        SharedPreferences sPref =
+                PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        return sPref.getString(PREF_KEY_LAST_LOCATION,"London");
     }
 }
