@@ -1,0 +1,146 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.drprog.weather.MainFragment">
+
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_gravity="left"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <!-- Header: Day, Date -->
+            <TextView
+                android:id="@+id/tv_day"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="24sp"
+                android:text="Sunday"/>
+
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="16sp"
+                android:text="03.04.2015"/>
+
+
+            <!-- Main content: high, low, art, weather state -->
+            <LinearLayout
+                android:gravity="center_horizontal"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
+
+
+                    <TextView
+                        android:id="@+id/tv_high"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textSize="96sp"
+                        android:text="12"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_low"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textSize="48sp"
+                        android:text="-1"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/iv_icon"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@mipmap/ic_launcher"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:textAppearanceLarge"
+                        android:text="Sunny"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- Humidity, wind, pressure -->
+            <LinearLayout
+                android:layout_height="match_parent"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_humidity"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:text="235 mm.hg"/>
+
+
+                <TextView
+                    android:id="@+id/tv_pressure"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:text="1 At"/>
+
+
+                <TextView
+                    android:id="@+id/tv_wind"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:text="SW 21"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
