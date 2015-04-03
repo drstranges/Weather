@@ -1,0 +1,1 @@
+Simple mobile app (Android) for users to interact with weather web service (http://openweathermap.org/current) providing weather data for different cities. The user will write the name of the city in field in Action Bar, after get data from server and display all received information.
